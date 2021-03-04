@@ -1,4 +1,4 @@
-package model;
+package com.prueba.calles.model;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;

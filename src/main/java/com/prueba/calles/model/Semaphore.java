@@ -1,11 +1,8 @@
-package model;
+package com.prueba.calles.model;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.Objects;
-import java.util.Observable;
-import java.util.Observer;
-import java.util.Timer;
 import java.util.TimerTask;
 
 import lombok.AllArgsConstructor;
@@ -38,7 +35,7 @@ public class Semaphore extends TimerTask {
                     .support(this.support)
                     .color(this.color)
                     .build();
-            Color newColor = color.equals(Color.ROJO)?Color.VERDE:Color.ROJO;
+            Color newColor = color.equals(Color.ROJO)? Color.VERDE: Color.ROJO;
             Semaphore nextSemaphore = Semaphore.builder()
                     .id(this.id)
                     .changeTime(this.changeTime)

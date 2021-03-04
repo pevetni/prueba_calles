@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Car;
-import model.Color;
-import model.Driver;
-import model.Semaphore;
-import model.Street;
-import services.DriveImpl;
-import services.IDrive;
+import com.prueba.calles.model.Car;
+import com.prueba.calles.model.Color;
+import com.prueba.calles.model.Driver;
+import com.prueba.calles.model.Semaphore;
+import com.prueba.calles.model.Street;
+import com.prueba.calles.services.DriveImpl;
+import com.prueba.calles.services.IDrive;
 
 public class Application {
     public static void main(String[] args) {
@@ -24,11 +24,6 @@ public class Application {
                 .build());
         semaphoreList.add(Semaphore.builder()
                 .id(3)
-                .changeTime(5000)
-                .color(Color.ROJO)
-                .build());
-        semaphoreList.add(Semaphore.builder()
-                .id(1)
                 .changeTime(5000)
                 .color(Color.ROJO)
                 .build());
@@ -57,6 +52,11 @@ public class Application {
                 .changeTime(5000)
                 .color(Color.ROJO)
                 .build());
+        semaphoreList.add(Semaphore.builder()
+                .id(9)
+                .changeTime(5000)
+                .color(Color.ROJO)
+                .build());
         //Initialize Streets
         List<Street> streetList = new ArrayList<>();
         streetList.add(Street.builder()
@@ -75,11 +75,6 @@ public class Application {
                 .nextStreet(4)
                 .build());
         streetList.add(Street.builder()
-                .id(1)
-                .semaphoreId(1)
-                .nextStreet(2)
-                .build());
-        streetList.add(Street.builder()
                 .id(4)
                 .semaphoreId(4)
                 .nextStreet(5)
@@ -87,7 +82,12 @@ public class Application {
         streetList.add(Street.builder()
                 .id(5)
                 .semaphoreId(5)
-                .nextStreet(0)
+                .nextStreet(6)
+                .build());
+        streetList.add(Street.builder()
+                .id(6)
+                .semaphoreId(6)
+                .nextStreet(7)
                 .build());
 
         Car car1 = Car.builder()
@@ -99,9 +99,6 @@ public class Application {
                         .build())
                 .build();
 
-        List<Car> carList = new ArrayList<>();
-        carList.add(car1);
-
         List<Driver> driverList = new ArrayList<>();
         driverList.add(Driver.builder()
                 .id(1)
@@ -111,11 +108,7 @@ public class Application {
 
 
         IDrive drive = new DriveImpl();
-
-
-        drive.startSemaphores(semaphoreList);
-
-        drive.subscribeToSemaphores(driverList, semaphoreList);
+        drive.startSimulation(driverList, semaphoreList);
 
     }
 }

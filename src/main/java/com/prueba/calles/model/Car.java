@@ -1,4 +1,4 @@
-package model;
+package com.prueba.calles.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
